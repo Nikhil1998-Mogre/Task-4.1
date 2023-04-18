@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from rest_framework import viewsets
-from .models import Employer,Tag
+from .models import Employer,Tag,Job
 from .serializers import EmployerSerializer,UserSerializer
 from django.contrib.auth.models import User
 
@@ -15,4 +15,8 @@ class UserViewSet(viewsets.ModelViewSet):
 
 class TagViewSet(viewsets.ModelViewSet):
     queryset = Tag.objects.all()
+    serializer_class = UserSerializer
+
+class JobViewSet(viewsets.ModelViewSet):
+    queryset = Job.objects.all()
     serializer_class = UserSerializer
